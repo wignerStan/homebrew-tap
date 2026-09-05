@@ -8,6 +8,7 @@ class CpaKeyPolicyCatalog < Formula
 
   def install
     ENV["CGO_ENABLED"] = "1"
+    ENV["CC"] = "/usr/bin/gcc" if OS.linux?
     extension = OS.mac? ? "dylib" : "so"
     output = libexec/"cpa-key-policy.#{extension}"
     libexec.mkpath

@@ -10,6 +10,7 @@ class CliproxyapiPatched < Formula
 
   def install
     ENV["CGO_ENABLED"] = "1"
+    ENV["CC"] = "/usr/bin/gcc" if OS.linux?
     ldflags = %W[
       -X main.Version=#{version}
       -X main.Commit=#{tap.user}/model-list-patch
