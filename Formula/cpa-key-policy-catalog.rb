@@ -1,8 +1,8 @@
 class CpaKeyPolicyCatalog < Formula
   desc "CPA key-policy plugin with per-key model catalogs"
-  homepage "https://github.com/wignerStan/cpa-plugin-key-policy/tree/feature/model-catalog-policy"
+  homepage "https://github.com/wignerStan/cpa-plugin-key-policy"
   license "MIT"
-  head "https://github.com/wignerStan/cpa-plugin-key-policy.git", branch: "feature/model-catalog-policy"
+  head "https://github.com/wignerStan/cpa-plugin-key-policy.git", branch: "main"
 
   depends_on "go" => :build
 
