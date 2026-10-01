@@ -7,6 +7,7 @@ class Cliproxyapi < Formula
   depends_on "go" => :build
 
   def install
+    ENV["CC"] = "/usr/bin/cc" if OS.linux?
     system "bash", "scripts/materialize-cliproxyapi.sh"
     build_root = buildpath / "build" / "cliproxyapi"
     ldflags = %W[
