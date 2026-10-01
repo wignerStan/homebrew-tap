@@ -2,13 +2,15 @@ class CpaKeyPolicyCatalog < Formula
   desc "CPA key-policy plugin with per-key model catalogs"
   homepage "https://github.com/wignerStan/cpa-plugin-key-policy"
   license "MIT"
-  head "https://github.com/wignerStan/cpa-plugin-key-policy.git", branch: "feature/model-catalog-policy"
+  head "https://github.com/wignerStan/cpa-plugin-key-policy.git", branch: "main"
 
   depends_on "go" => :build
 
   def install
     ENV["CGO_ENABLED"] = "1"
-    ENV["CC"] = "/usr/bin/gcc" if OS.linux?
+    ENV["GOFLAGS"] = "-mod=mod"
+    ENV["CC"] = "/usr/bin/cc"
+    ENV["CXX"] = "/usr/bin/c++"
     extension = OS.mac? ? "dylib" : "so"
     output = libexec/"cpa-key-policy.#{extension}"
     libexec.mkpath
